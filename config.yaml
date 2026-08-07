@@ -2,15 +2,15 @@ llm:
   provider: openapi
   url: https://openrouter.ai/api/v1
   token: ""
-  model: qwen/qwen-2.5-7b-instruct
+  model: qwen/qwen3.7-flash
   embed_model: google/gemini-embedding-001
   batch_size: 80
   request_timeout_minutes: 20
   retry_delays_seconds: [60, 120, 300]
-  max_input_bytes: 25000
+  max_bytes: 25000
 
 semantic:
-  mode: llm
+  mode: fast
   concurrency:
     semantic_workers: 3
   throttling:
@@ -27,7 +27,7 @@ documentation:
 exclude:
   - "dist/**"
   - "sample-project/**"
-  - "_znt_ollama/**"
+  - "_llm_mod.znt/**"
   - "docs/**"
   - ".github/**"
   - "present/**"
@@ -54,6 +54,15 @@ languages:
     entrypoints:
       - "public/index.php"
       - "artisan"
+    dependency_dirs:
+      - "vendor/**"
+  go:
+    include: []
+    exclude:
+      - "vendor/**"
+    entrypoints:
+      - "main.go"
+      - "cmd/**/main.go"
     dependency_dirs:
       - "vendor/**"
   javascript:
