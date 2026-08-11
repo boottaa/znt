@@ -4,15 +4,15 @@ llm:
   token: ""
   model: qwen/qwen3.7-flash
   embed_model: google/gemini-embedding-001
-  batch_size: 80
   request_timeout_minutes: 20
   retry_delays_seconds: [60, 120, 300]
   max_bytes: 25000
+  max_embed_bytes: 63768
 
 semantic:
   mode: fast
   concurrency:
-    semantic_workers: 3
+    semantic_workers: 6
   throttling:
     delay_ms: 10
     adaptive: true
