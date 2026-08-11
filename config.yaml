@@ -32,6 +32,9 @@ exclude:
   - ".github/**"
   - "present/**"
   - "tests/**"
+  - ".git/**"
+  - ".vscode/**"
+  - ".idea/**"
 
 languages:
   csharp:
