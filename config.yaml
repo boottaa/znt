@@ -3,7 +3,7 @@ llm:
   url: https://openrouter.ai/api/v1
   token: ""
   model: qwen/qwen3.7-flash
-  embed_model: google/gemini-embedding-001
+  embed_model: bge-m3
   request_timeout_minutes: 20
   retry_delays_seconds: [60, 120, 300]
   max_bytes: 25000
@@ -69,14 +69,16 @@ languages:
     dependency_dirs:
       - "vendor/**"
   javascript:
-    include:
-      - "ui/src/**"
+    include: []
     exclude:
       - "node_modules/**"
       - "dist/**"
       - ".nuxt/**"
       - ".next/**"
       - "build/**"
+      - "public/build/**"
+      - "**/*.min.js"
+      - "**/wwwroot/lib/**"
     entrypoints:
       - "index.js"
       - "src/main.js"
@@ -109,3 +111,11 @@ languages:
       - "app.py"
       - "run.py"
     dependency_dirs: []
+  resource:
+    include: []
+    exclude:
+      - "vendor/**"
+      - "node_modules/**"
+    entrypoints: []
+    dependency_dirs: []
+
